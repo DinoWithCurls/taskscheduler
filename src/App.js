@@ -1,6 +1,6 @@
 import React from 'react';
-import StatusModal from './components/statusModal';
-import AddTaskButton from './components/addTaskButton'
+import StatusModal from './components/modals/statusModal';
+import AddTaskButton from './components/buttons/addTaskButton'
 import './styles/App.css';
 function App() {
   
