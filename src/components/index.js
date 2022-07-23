@@ -1,11 +1,6 @@
-import React from 'react';
+import AddTaskButton from './addTaskButton';
+import ExtraOptionsModal from './extraOptionsModal';
+import OtherButton from './otherButton';
+import StatusModal from './statusModal';
 
-const Components = () => {
-    return (
-        <div>
-            <p>Component Folder</p>
-        </div>
-    )
-};
-
-export default Components;
+export { AddTaskButton, ExtraOptionsModal, OtherButton, StatusModal };
