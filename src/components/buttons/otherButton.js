@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/otherButton.css";
+import "../../styles/otherButton.css";
 
 const OtherButton = ({ buttonType, buttonPressAction }) => {
   return (

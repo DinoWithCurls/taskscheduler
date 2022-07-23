@@ -1,11 +1,11 @@
 import React from "react";
-import '../styles/addNoteButton.css';
-import { PlusCircleIcon } from "@heroicons/react/outline";
+import '../../styles/addNoteButton.css';
+import { Add } from "../iconsComponent";
 const AddNoteButton = () => {
     return (
         <div class="button-container" onClick={()=>console.log("ADD NOTE")}>
             <div class="icon-container">
-                <PlusCircleIcon className="icon" />
+                <Add className="icon" />
             </div>
             <div class="text-container">
                 <div>Add Note</div>

@@ -1,6 +1,6 @@
 import React from "react";
-import OtherButton from "./otherButton";
-import "../styles/statusModal.css";
+import OtherButton from "../buttons/otherButton";
+import "../../styles/statusModal.css";
 const StatusModal = () => {
   const buttonAction = () => {
     console.log("Button Pressed");
