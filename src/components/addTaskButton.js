@@ -1,9 +1,9 @@
 import React from "react";
-import "../styles/addButton.css";
+import "../styles/addTaskButton.css";
 import { PlusCircleIcon } from '@heroicons/react/outline'
 const AddTaskButton = () => {
   return (
-    <div class="button" onClick={()=>console.log('Button Presse3d')}>
+    <div class="button-container" onClick={()=>console.log('Button Pressed')}>
       <div class="icon-container">
         <PlusCircleIcon className="icon" />
       </div>

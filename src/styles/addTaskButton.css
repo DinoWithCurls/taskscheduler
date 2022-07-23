@@ -1,4 +1,4 @@
-.button {
+.button-container {
     border-style: solid;
     border-width: thin; 
     flex-direction: row;
@@ -12,7 +12,7 @@
 .icon-container {
     height: 25px;
     width: 25px;
-    margin: 2px;
+    margin-top: 4px;
 }
 .icon {
     height: 22px;
