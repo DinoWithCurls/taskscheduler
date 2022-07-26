@@ -1,13 +1,17 @@
 import React from 'react';
-import StatusModal from './components/modals/statusModal';
+//import StatusModal from './components/modals/statusModal';
 import AddTaskButton from './components/buttons/addTaskButton'
+//import NewTaskModal from './components/modals/newTaskModal';
+
+import { Table } from './components/table';
+
 import './styles/App.css';
 function App() {
   
   return (
     <div className="App">
-      <StatusModal />
       <AddTaskButton />
+      <Table />
     </div>
   );
 }

@@ -1,0 +1,60 @@
+.container {
+    background-color: white;
+    height:720px;
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+}
+.container-inset {
+    padding: 5%;
+}
+.header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-width: 2px;
+    width: 100%;
+    padding-top: 30px;
+    
+}
+.header-button {
+    flex-direction: row;
+    display: flex;
+    justify-content: space-evenly;
+}
+.header-text {
+    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: large;
+}
+.input-box-container {
+    text-align: left;
+    background-color: #E8E8E8;
+    padding: 20px;
+    margin:10px
+}
+.input-box {
+    border: 0;
+    outline: 0;
+    background-color: inherit;
+    height: 100%;
+    width: 100%;
+}
+.date-time-input {
+    flex-direction: row;
+    display: flex;
+}
+.date-input {
+    text-align: left;
+    background-color: #E8E8E8;
+    padding: 20px;
+    margin:10px;
+    width: 20%
+}
+.time-input {
+    text-align: left;
+    background-color: #E8E8E8;
+    padding: 20px;
+    margin:10px;
+    width: 20%
+}

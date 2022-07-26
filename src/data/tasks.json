@@ -1,0 +1,14 @@
+[
+    {
+        "id": 1,
+        "task": "Meeting"
+    },
+    {
+        "id": 2,
+        "task": "Call"
+    },
+    {
+        "id": 3,
+        "task": "Video Call"
+    }
+]
