@@ -6,6 +6,7 @@
     background-color: gainsboro;
     height: 35px;
     width: 135px;
+    border: none;
 }
 .icon-container {
     height: 25px;

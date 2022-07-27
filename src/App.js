@@ -10,7 +10,8 @@ function App() {
   
   return (
     <div className="App">
-      <AddTaskButton />
+      <div><AddTaskButton /></div>
+      <div></div>
       <Table />
     </div>
   );

@@ -1,10 +1,8 @@
 .App {
   font-family: 'Courier New', Courier, monospace;
-  display: flex;
   justify-items: center;
   align-items: center;
   flex-direction: column;
   height: 100vh;
-  margin: 0;
-  background-color: beige;
+  width: 100vw;
 }

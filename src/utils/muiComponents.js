@@ -8,7 +8,9 @@ import {
   TableHead,
   TableBody,
   TableRow,
-  TableCell, Paper
+  TableCell, Paper,
+  TableSortLabel,
+  Box
 } from "@mui/material";
 
 export {
@@ -22,5 +24,7 @@ export {
   TableBody as Body,
   TableRow as Row,
   TableCell as Cell,
-  Paper
+  TableSortLabel as SortLabel,
+  Paper,
+  Box
 };
