@@ -1,0 +1,17 @@
+.status-main {
+    background-color: inherit;
+    border-bottom: 1px dotted black;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+    margin-left: 40%
+}
+
+.open-style {
+    color: orange;
+}
+.close-style {
+    color: blue;
+}

@@ -7,6 +7,7 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import CloseIcon from '@mui/icons-material/Close';
 import FilterAltIcon from '@mui/icons-material/FilterAlt';
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
+import LaunchIcon from '@mui/icons-material/Launch';
 
 
 export {
@@ -18,5 +19,6 @@ export {
   ChevronRightIcon as Right,
   CloseIcon as Cross,
   NestCamWiredStandIcon as Webcam,
-  SearchIcon as Search
+  SearchIcon as Search,
+  LaunchIcon as Open,
 };

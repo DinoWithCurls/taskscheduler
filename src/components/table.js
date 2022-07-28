@@ -15,6 +15,7 @@ import AddNoteButton from "./buttons/addNoteButton";
 
 import jsonFile from "../data/info.json";
 import OptionButton from "./buttons/optionButton";
+import StatusButton from "./buttons/statusButton";
 
 function descendingComparator(a, b, orderBy) {
   if (b[orderBy] < a[orderBy]) {
@@ -96,7 +97,6 @@ const TableHeader = ({ order, orderBy, onRequestSort }) => {
                 direction={orderBy === headCell.id ? order : "asc"}
                 onClick={createSortHandler(headCell.id)}
               >
-                
               </SortLabel>
             </Cell>
           );
@@ -168,11 +168,8 @@ export const Table = () => {
                 >
                   {row.notes.length > 0 ? row.notes : <AddNoteButton />}
                 </Cell>
-                <Cell
-                  align="right"
-                  style={{ whiteSpace: "nowrap", width: "10%" }}
-                >
-                  {row.status}
+                <Cell align="right">
+                  <StatusButton status={row.status} />
                 </Cell>
                 <Cell>
                   <OptionButton />
