@@ -5,9 +5,13 @@
     align-items: center;
     justify-content: center;
     display: flex;
-    background-color: white;
+    background-color: inherit;
     height: 50px;
     width: 150px;
+}
+
+.btn-container:hover{
+    background-color: white;
 }
 .icn-container {
     height: 25px;

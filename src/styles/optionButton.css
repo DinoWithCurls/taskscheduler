@@ -1,0 +1,22 @@
+.option {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    justify-items: center;
+    background-color: gainsboro;
+    border: none;
+    width: 100px
+}
+button {
+    display: flex;
+    background-color: inherit;
+    width: 10%;
+    border: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.option-text {
+    margin: 2px;
+    padding: 2px;
+}

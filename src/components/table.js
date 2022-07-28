@@ -9,12 +9,12 @@ import {
   Cell,
   Paper,
   SortLabel,
-  Box,
 } from "../utils/muiComponents";
 
 import AddNoteButton from "./buttons/addNoteButton";
 
 import jsonFile from "../data/info.json";
+import OptionButton from "./buttons/optionButton";
 
 function descendingComparator(a, b, orderBy) {
   if (b[orderBy] < a[orderBy]) {
@@ -87,19 +87,16 @@ const TableHeader = ({ order, orderBy, onRequestSort }) => {
             <Cell
               key={headCell.id}
               align={"right"}
-              padding={"5px"}
+              padding={"normal"}
               sortDirection={orderBy === headCell.id ? order : false}
             >
+              {headCell.label}
               <SortLabel
                 active={orderBy === headCell.id}
                 direction={orderBy === headCell.id ? order : "asc"}
                 onClick={createSortHandler(headCell.id)}
               >
-                {headCell.label}
-                {orderBy === headCell.id ? (
-                  <Box component="span">
-                  </Box>
-                ) : null}
+                
               </SortLabel>
             </Cell>
           );
@@ -125,7 +122,7 @@ export const Table = () => {
           {stableSort( jsonFile, getComparator(order, orderBy)).map((row, index)=>{
             const labelID = index;
             return (
-              <Row tabIndex={-1} key={row.entityName}>
+              <Row tabIndex={-1} key={row.id}>
                 <Cell
                   component="th"
                   scope="row"
@@ -166,6 +163,7 @@ export const Table = () => {
                     display: "block",
                     textOverflow: "ellipsis",
                     overflow: "hidden",
+                    height: '100%'
                   }}
                 >
                   {row.notes.length > 0 ? row.notes : <AddNoteButton />}
@@ -175,6 +173,9 @@ export const Table = () => {
                   style={{ whiteSpace: "nowrap", width: "10%" }}
                 >
                   {row.status}
+                </Cell>
+                <Cell>
+                  <OptionButton />
                 </Cell>
               </Row>
             )
