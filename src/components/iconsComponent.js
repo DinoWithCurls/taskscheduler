@@ -10,6 +10,7 @@ import { PlusCircleIcon } from "@heroicons/react/outline";
 import NestCamWiredStandIcon from '@mui/icons-material/NestCamWiredStand';
 import CallIcon from '@mui/icons-material/Call';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
+import SearchIcon from '@mui/icons-material/Search';
 export {
   ChevronDownIcon as Down,
   CallIcon as Phone,
@@ -19,5 +20,6 @@ export {
   PlusCircleIcon as Add,
   ChevronRightIcon as Right,
   XIcon as Cross,
-  NestCamWiredStandIcon as Webcam
+  NestCamWiredStandIcon as Webcam,
+  SearchIcon as Search
 };

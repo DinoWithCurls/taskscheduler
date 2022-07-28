@@ -6,3 +6,11 @@
   height: 100vh;
   width: 100vw;
 }
+.main-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #E8E8E8;
+  padding: 20px
+}

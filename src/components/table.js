@@ -58,6 +58,10 @@ const headCells = [
     label: "Time",
   },
   {
+    id: "contactPerson",
+    label: "Contact Person"
+  },
+  {
     id: "notes",
     label: "Notes",
   },
@@ -65,6 +69,10 @@ const headCells = [
     id: "status",
     label: "Status",
   },
+  {
+    id: "options",
+    label: "options"
+  }
 ];
 
 const TableHeader = ({ order, orderBy, onRequestSort }) => {
@@ -79,7 +87,7 @@ const TableHeader = ({ order, orderBy, onRequestSort }) => {
             <Cell
               key={headCell.id}
               align={"right"}
-              padding={"none"}
+              padding={"5px"}
               sortDirection={orderBy === headCell.id ? order : false}
             >
               <SortLabel
@@ -111,7 +119,7 @@ export const Table = () => {
   }
   return (
     <Container component={Paper}>
-      <TableMain sx={{ tableLayout: "fixed", overflowX: "auto", mb:2 }} small>
+      <TableMain sx={{ tableLayout: "fixed", overflowX: "auto", mb:2, width: "90%" }} small>
         <TableHeader order={order} orderBy={orderBy} onRequestSort={handleRequestSort} />
         <Body>
           {stableSort( jsonFile, getComparator(order, orderBy)).map((row, index)=>{
