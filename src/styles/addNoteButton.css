@@ -13,16 +13,11 @@
 }
 
 .icon-container {
-    height: 25px;
-    width: 25px;
     margin-top: 4px;
 }
 .icon {
-    height: 20px;
-    width: 20px;
     color: darkblue;
 }
 .text-container {
     margin: 2px;
-    
 }
