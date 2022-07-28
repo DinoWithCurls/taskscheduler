@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 
 import {
   Container,
@@ -13,7 +13,10 @@ import {
 
 import AddNoteButton from "./buttons/addNoteButton";
 
+import { Filter } from "./iconsComponent";
+
 import jsonFile from "../data/info.json";
+import headCells from "../data/headers.json";
 import OptionButton from "./buttons/optionButton";
 import StatusButton from "./buttons/statusButton";
 
@@ -45,37 +48,6 @@ function stableSort(array, comparator) {
   return stabilizedThis.map((el) => el[0]);
 }
 
-const headCells = [
-  {
-    id: "entityName",
-    label: "Entity Name",
-  },
-  {
-    id: "task",
-    label: "Task",
-  },
-  {
-    id: "time",
-    label: "Time",
-  },
-  {
-    id: "contactPerson",
-    label: "Contact Person"
-  },
-  {
-    id: "notes",
-    label: "Notes",
-  },
-  {
-    id: "status",
-    label: "Status",
-  },
-  {
-    id: "options",
-    label: "options"
-  }
-];
-
 const TableHeader = ({ order, orderBy, onRequestSort }) => {
   const createSortHandler = (property) => (event) => {
     onRequestSort(event, property);
@@ -87,17 +59,22 @@ const TableHeader = ({ order, orderBy, onRequestSort }) => {
           return (
             <Cell
               key={headCell.id}
-              align={"right"}
+              align={headCell.align}
               padding={"normal"}
               sortDirection={orderBy === headCell.id ? order : false}
+              style={{ border: "none" }}
             >
-              {headCell.label}
-              <SortLabel
-                active={orderBy === headCell.id}
-                direction={orderBy === headCell.id ? order : "asc"}
-                onClick={createSortHandler(headCell.id)}
-              >
-              </SortLabel>
+              <div style={{display:"flex", flexDirection:"row"}}>
+                <div style={{ fontWeight: "bold" }}>{headCell.label}</div>
+                {headCell.label.length > 0 ? (
+                  <Filter style={{ color: "grey" }} />
+                ) : null}
+                <SortLabel
+                  active={orderBy === headCell.id}
+                  direction={orderBy === headCell.id ? order : "asc"}
+                  onClick={createSortHandler(headCell.id)}
+                ></SortLabel>
+              </div>
             </Cell>
           );
         })}
@@ -107,77 +84,117 @@ const TableHeader = ({ order, orderBy, onRequestSort }) => {
 };
 
 export const Table = () => {
-  const [order, setOrder] = useState('asc');
-  const [orderBy, setOrderBy] = useState('task');
+  const [order, setOrder] = useState("asc");
+  const [orderBy, setOrderBy] = useState("task");
   const handleRequestSort = (event, property) => {
-    const isAsc = orderBy === property && order === 'asc';
-    setOrder(isAsc ? 'desc': 'asc');
+    const isAsc = orderBy === property && order === "asc";
+    setOrder(isAsc ? "desc" : "asc");
     setOrderBy(property);
-  }
+  };
   return (
     <Container component={Paper}>
-      <TableMain sx={{ tableLayout: "fixed", overflowX: "auto", mb:2, width: "90%" }} small>
-        <TableHeader order={order} orderBy={orderBy} onRequestSort={handleRequestSort} />
+      <TableMain
+        sx={{
+          tableLayout: "fixed",
+          overflowX: "auto",
+          mb: 2,
+          width: "90%",
+          borderWidth: "2px",
+          borderColor: "black",
+        }}
+        small
+      >
+        <TableHeader
+          order={order}
+          orderBy={orderBy}
+          onRequestSort={handleRequestSort}
+        />
         <Body>
-          {stableSort( jsonFile, getComparator(order, orderBy)).map((row, index)=>{
-            const labelID = index;
-            return (
-              <Row tabIndex={-1} key={row.id}>
-                <Cell
-                  component="th"
-                  scope="row"
-                  style={{
-                    whiteSpace: "nowrap",
-                    width: "80%",
-                    display: "block",
-                    textOverflow: "ellipsis",
-                    overflow: "hidden",
-                  }}
-                  id={labelID}
-                >
-                  {row.entityName}
-                </Cell>
-                <Cell
-                  align="right"
-                  style={{ whiteSpace: "nowrap", width: "20%" }}
-                >
-                  {row.taskType}
-                </Cell>
-                <Cell
-                  align="right"
-                  style={{ whiteSpace: "nowrap", width: "20%" }}
-                >
-                  {row.time}
-                </Cell>
-                <Cell
-                  align="right"
-                  style={{ whiteSpace: "nowrap", width: "20%" }}
-                >
-                  {row.contactPerson}
-                </Cell>
-                <Cell
-                  align="right"
-                  style={{
-                    whiteSpace: "nowrap",
-                    width: "100%",
-                    display: "block",
-                    textOverflow: "ellipsis",
-                    overflow: "hidden",
-                    height: '100%'
-                  }}
-                >
-                  {row.notes.length > 0 ? row.notes : <AddNoteButton />}
-                </Cell>
-                <Cell align="right">
-                  <StatusButton status={row.status} />
-                </Cell>
-                <Cell>
-                  <OptionButton />
-                </Cell>
-              </Row>
-            )
-          })
-        }
+          {stableSort(jsonFile, getComparator(order, orderBy)).map(
+            (row, index) => {
+              const labelID = index;
+              return (
+                <Row tabIndex={-1} key={row.id}>
+                  <Cell
+                    component="th"
+                    scope="row"
+                    style={{
+                      width: "70%",
+                      borderBottom: "none",
+                    }}
+                    id={labelID}
+                    align={"left"}
+                  >
+                    {row.date}
+                  </Cell>
+                  <Cell
+                    component="th"
+                    scope="row"
+                    style={{
+                      whiteSpace: "normal",
+                      width: "80%",
+                      borderBottom: "none",
+                      display: "block",
+                    }}
+                    id={labelID}
+                  >
+                    {row.entityName}
+                  </Cell>
+                  <Cell
+                    align="left"
+                    style={{
+                      width: "20%",
+                      borderBottom: "none",
+                    }}
+                  >
+                    {row.taskType}
+                  </Cell>
+                  <Cell
+                    align="left"
+                    style={{
+                      width: "20%",
+                      borderBottom: "none",
+                    }}
+                  >
+                    {row.time}
+                  </Cell>
+                  <Cell
+                    align="left"
+                    style={{
+                      whiteSpace: "nowrap",
+                      width: "20%",
+                      borderBottom: "none",
+                    }}
+                  >
+                    {row.contactPerson}
+                  </Cell>
+                  <Cell
+                    align="left"
+                    style={{
+                      whiteSpace: "nowrap",
+                      width: "100%",
+                      display: "block",
+                      textOverflow: "ellipsis",
+                      overflow: "hidden",
+                      height: "100%",
+                      borderBottom: "none",
+                    }}
+                  >
+                    {row.notes.length > 0 ? row.notes : <AddNoteButton />}
+                  </Cell>
+                  <Cell
+                    align="left"
+                    style={{ borderBottom: "none", width: "40%" }}
+                  >
+                    <StatusButton status={row.status} />
+                  </Cell>
+                  <Cell style={{ borderBottom: "none" }}>
+                    <OptionButton />
+                  </Cell>
+                </Row>
+              );
+            }
+          )}
         </Body>
       </TableMain>
     </Container>

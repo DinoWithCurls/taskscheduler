@@ -1,0 +1,42 @@
+[
+  {
+    "id": "date",
+    "label": "Date",
+    "align": "left"
+  },
+  {
+    "id": "entityName",
+    "label": "Entity Name",
+    "align": "left"
+  },
+  {
+    "id": "task",
+    "label": "Task",
+    "align": "left"
+  },
+  {
+    "id": "time",
+    "label": "Time",
+    "align": "left"
+  },
+  {
+    "id": "contactPerson",
+    "label": "Contact Person",
+    "align": "left"
+  },
+  {
+    "id": "notes",
+    "label": "Notes",
+    "align": "left"
+  },
+  {
+    "id": "status",
+    "label": "Status",
+    "align": "center"
+  },
+  {
+    "id": "options",
+    "label": "",
+    "align": "left"
+  }
+]
