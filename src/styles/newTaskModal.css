@@ -4,6 +4,7 @@
     width: 600px;
     display: flex;
     flex-direction: column;
+    border: 2px solid;
 }
 .container-inset {
     padding: 5%;
@@ -57,4 +58,14 @@
     padding: 20px;
     margin:10px;
     width: 20%
+}
+.task {
+    text-align: left;
+    padding: 10px;
+}
+.task-dropdown {
+    border: 2px solid;
+    outline: 0;
+    background-color: inherit;
+    width: 98%;
 }

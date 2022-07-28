@@ -1,11 +1,32 @@
-import React from "react";
+import React, {useState} from "react";
 import OtherButton from "../buttons/otherButton";
+import { MUIDropdown, MUIForm, MUIItem } from "../../utils/muiComponents";
 import "../../styles/newTaskModal.css";
+
+import { Phone, Location, Webcam } from "../iconsComponent";
+
+const SelectLabel = ({task, handleChange}) => {
+  return (
+    <MUIForm sx={{m:1, minWidth: '98%'}}>
+      <MUIDropdown
+        value={task}
+        onChange = {handleChange}>
+          <MUIItem value={'call'}><Phone />Call</MUIItem>
+          <MUIItem value={'meeting'}><Location />Meeting</MUIItem>
+          <MUIItem value={'video call'}><Webcam />Video Call</MUIItem>
+        </MUIDropdown>
+    </MUIForm>
+  )
+}
 
 const NewTaskModal = () => {
   const onClickAction = () => {
     console.log("Button Pressed");
   };
+  const [task, setTask] = useState('Call');
+  const handleChange = (event) => {
+    setTask(event.target.value);
+  }
   return (
     <div class="container">
       <div class="container-inset">
@@ -30,11 +51,11 @@ const NewTaskModal = () => {
             <input placeholder="Date" class="input-box" type="date" />
           </div>
           <div class="time-input">
-            <input placeholder="Time" class="input-box" type="time" />
+            <input placeholder="Time" class="input-box" type="time" defaultValue={"12:00"} />
           </div>
         </div>
-        <div class="input-box-container">
-          <input placeholder="Task" />
+        <div class="task">
+          <SelectLabel task={task} handleChange={handleChange} />
         </div>
         <div class="input-box-container">
           <input placeholder="Phone number" class="input-box" type="tel" />
