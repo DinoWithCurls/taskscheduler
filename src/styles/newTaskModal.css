@@ -71,3 +71,34 @@
     background-color: inherit;
     width: 98%;
 }
+
+.buttons-container {
+    float: right;
+    padding: 2px;
+    margin-right: 2%;
+}
+
+.clear-button {
+    padding-left: 35px;
+    padding-right: 35px;
+    border: 2px;
+    font-size: 15px;
+    font-weight: 400;
+    height: 50px;
+    width: 130px;
+    border-radius: 5px;
+    background-color: white;
+}
+
+.save-button {
+    padding-left: 35px;
+    padding-right: 35px;
+    border: 2px;
+    font-size: 15px;
+    font-weight: 400;
+    height: 50px;
+    width: 130px;
+    border-radius: 5px;
+    background-color: darkblue;
+    color: white;
+}
