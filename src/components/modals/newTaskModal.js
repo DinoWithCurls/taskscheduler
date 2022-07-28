@@ -3,7 +3,7 @@ import OtherButton from "../buttons/otherButton";
 import { MUIDropdown, MUIForm, MUIItem } from "../../utils/muiComponents";
 import "../../styles/newTaskModal.css";
 
-import { Phone, Location, Webcam } from "../iconsComponent";
+import { Phone, Location, Webcam } from "../../utils/iconsComponent";
 
 const SelectLabel = ({task, handleChange}) => {
   return (
@@ -11,21 +11,53 @@ const SelectLabel = ({task, handleChange}) => {
       <MUIDropdown
         value={task}
         onChange = {handleChange}>
-          <MUIItem value={'call'}><Phone />Call</MUIItem>
-          <MUIItem value={'meeting'}><Location />Meeting</MUIItem>
-          <MUIItem value={'video call'}><Webcam />Video Call</MUIItem>
+          <MUIItem value={'Call'}><Phone />Call</MUIItem>
+          <MUIItem value={'Meeting'}><Location />Meeting</MUIItem>
+          <MUIItem value={'Video Call'}><Webcam />Video Call</MUIItem>
         </MUIDropdown>
     </MUIForm>
   )
 }
 
 const NewTaskModal = () => {
-  const onClickAction = () => {
-    console.log("Button Pressed");
-  };
+  const [entityName, setEntityName] = useState('');
+  const [date, setDate] = useState('');
+  const [time, setTime] = useState('12:00 PM');
   const [task, setTask] = useState('Call');
+  const [phoneNumber, setPhoneNumber] = useState('');
+  const [contactPerson, setContactPerson] = useState('');
+  const [status, setStatus] = useState('Open');
+  const [note, setNote] = useState('');
+  const onClickOpen = () => {
+    console.log("Open Button Pressed");
+    setStatus('Open');
+  };
+  const onClickClose = () => {
+    console.log('Closed Button Pressed');
+    setStatus('Closed');
+  }
   const handleChange = (event) => {
     setTask(event.target.value);
+  }
+  const onPressSubmit = () => {
+    console.log('entityName', entityName);
+    console.log('date', date);
+    console.log('time', time);
+    console.log('phoneNumber', phoneNumber);
+    console.log('contactPerson', contactPerson);
+    console.log('task', task);
+    console.log('status', status);
+    console.log('note', note);
+  }
+  const onPressClear = () => {
+    setContactPerson('');
+    setDate('');
+    setEntityName('');
+    setNote('');
+    setPhoneNumber('');
+    setStatus('');
+    setTask('Call');
+    setTime('');
   }
   return (
     <div class="container">
@@ -35,36 +67,40 @@ const NewTaskModal = () => {
           <div class="header-button">
             <OtherButton
               buttonType={"Open"}
-              buttonPressAction={onClickAction}
+              buttonPressAction={onClickOpen}
             />
             <OtherButton
               buttonType={"Closed"}
-              buttonPressAction={onClickAction}
+              buttonPressAction={onClickClose}
             />
           </div>
         </div>
         <div class="input-box-container">
-          <input placeholder="Entity Name" class="input-box" type="text" />
+          <input placeholder="Entity Name" class="input-box" type="text" onInput={(event) => setEntityName(event.target.value)} />
         </div>
         <div class="date-time-input">
           <div class="date-input">
-            <input placeholder="Date" class="input-box" type="date" />
+            <input placeholder="Date" class="input-box" type="date" onInput={(event) => setDate(event.target.value)} />
           </div>
           <div class="time-input">
-            <input placeholder="Time" class="input-box" type="time" defaultValue={"12:00"} />
+            <input placeholder="Time" class="input-box" type="time" defaultValue={"12:00"} onInput={(event) => setTime(event.target.value)} />
           </div>
         </div>
         <div class="task">
           <SelectLabel task={task} handleChange={handleChange} />
         </div>
         <div class="input-box-container">
-          <input placeholder="Phone number" class="input-box" type="tel" />
+          <input placeholder="Phone number" class="input-box" type="tel" onInput={(event) => setPhoneNumber(event.target.value)} />
         </div>
         <div class="input-box-container">
-          <input placeholder="Contact person" class="input-box" type="text" />
+          <input placeholder="Contact person" class="input-box" type="text" onInput={(event) => setContactPerson(event.target.value)} />
         </div>
         <div class="input-box-container">
-          <textarea placeholder="Note (optional)" class="input-box" type="text" />
+          <textarea placeholder="Note (optional)" class="input-box" type="text" onInput={(event) => setNote(event.target.value)} />
+        </div>
+        <div>
+          <button type="clear" onClick={onPressClear}>CLEAR</button>
+          <button type="submit" onClick={onPressSubmit}>SAVE</button>
         </div>
       </div>
     </div>
