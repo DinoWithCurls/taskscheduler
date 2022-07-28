@@ -32,11 +32,10 @@
   {
     "id": "status",
     "label": "Status",
-    "align": "center"
+    "align":"right"
   },
   {
     "id": "options",
-    "label": "",
-    "align": "left"
+    "label": ""
   }
 ]

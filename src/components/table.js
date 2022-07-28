@@ -12,41 +12,17 @@ import {
 } from "../utils/muiComponents";
 
 import AddNoteButton from "./buttons/addNoteButton";
+import OptionButton from "./buttons/optionButton";
+import StatusButton from "./buttons/statusButton";
 
 import { Filter } from "../utils/iconsComponent";
 
 import jsonFile from "../data/info.json";
 import headCells from "../data/headers.json";
-import OptionButton from "./buttons/optionButton";
-import StatusButton from "./buttons/statusButton";
 
-function descendingComparator(a, b, orderBy) {
-  if (b[orderBy] < a[orderBy]) {
-    return -1;
-  }
-  if (b[orderBy] > a[orderBy]) {
-    return 1;
-  }
-  return 0;
-}
+import { getComparator, stableSort } from '../utils/tableSort'
 
-function getComparator(order, orderBy) {
-  return order === "desc"
-    ? (a, b) => descendingComparator(a, b, orderBy)
-    : (a, b) => -descendingComparator(a, b, orderBy);
-}
-
-function stableSort(array, comparator) {
-  const stabilizedThis = array.map((el, index) => [el, index]);
-  stabilizedThis.sort((a, b) => {
-    const order = comparator(a[0], b[0]);
-    if (order !== 0) {
-      return order;
-    }
-    return a[1] - b[1];
-  });
-  return stabilizedThis.map((el) => el[0]);
-}
+import '../styles/table.css'
 
 const TableHeader = ({ order, orderBy, onRequestSort }) => {
   const createSortHandler = (property) => (event) => {
@@ -61,18 +37,19 @@ const TableHeader = ({ order, orderBy, onRequestSort }) => {
               key={headCell.id}
               align={headCell.align}
               padding={"normal"}
+              size="medium"
               sortDirection={orderBy === headCell.id ? order : false}
-              style={{ border: "none" }}
+              style={{ border: "none", cursor:"pointer" }}
+              onClick={createSortHandler(headCell.id)}
             >
-              <div style={{display:"flex", flexDirection:"row"}}>
-                <div style={{ fontWeight: "bold" }}>{headCell.label}</div>
+              <div class="head-cell-body">
+                <div class="head-cell-text">{headCell.label}</div>
                 {headCell.label.length > 0 ? (
                   <Filter style={{ color: "grey" }} />
                 ) : null}
                 <SortLabel
                   active={orderBy === headCell.id}
                   direction={orderBy === headCell.id ? order : "asc"}
-                  onClick={createSortHandler(headCell.id)}
                 ></SortLabel>
               </div>
             </Cell>
@@ -85,7 +62,7 @@ const TableHeader = ({ order, orderBy, onRequestSort }) => {
 
 export const Table = () => {
   const [order, setOrder] = useState("asc");
-  const [orderBy, setOrderBy] = useState("task");
+  const [orderBy, setOrderBy] = useState("id");
   const handleRequestSort = (event, property) => {
     const isAsc = orderBy === property && order === "asc";
     setOrder(isAsc ? "desc" : "asc");
@@ -94,15 +71,8 @@ export const Table = () => {
   return (
     <Container component={Paper}>
       <TableMain
-        sx={{
-          tableLayout: "fixed",
-          overflowX: "auto",
-          mb: 2,
-          width: "90%",
-          borderWidth: "2px",
-          borderColor: "black",
-        }}
-        small
+        class="table-main"
+        
       >
         <TableHeader
           order={order}
@@ -118,10 +88,7 @@ export const Table = () => {
                   <Cell
                     component="th"
                     scope="row"
-                    style={{
-                      width: "70%",
-                      borderBottom: "none",
-                    }}
+                    class="cell-date"
                     id={labelID}
                     align={"left"}
                   >
@@ -130,65 +97,42 @@ export const Table = () => {
                   <Cell
                     component="th"
                     scope="row"
-                    style={{
-                      whiteSpace: "normal",
-                      width: "80%",
-                      borderBottom: "none",
-                      display: "block",
-                    }}
+                    class="cell-name"
                     id={labelID}
                   >
                     {row.entityName}
                   </Cell>
                   <Cell
                     align="left"
-                    style={{
-                      width: "20%",
-                      borderBottom: "none",
-                    }}
+                    class="cell-task"
                   >
                     {row.taskType}
                   </Cell>
                   <Cell
                     align="left"
-                    style={{
-                      width: "20%",
-                      borderBottom: "none",
-                    }}
+                    class="cell-time"
                   >
                     {row.time}
                   </Cell>
                   <Cell
                     align="left"
-                    style={{
-                      whiteSpace: "nowrap",
-                      width: "20%",
-                      borderBottom: "none",
-                    }}
+                    class="cell-contact"
                   >
                     {row.contactPerson}
                   </Cell>
                   <Cell
                     align="left"
-                    style={{
-                      whiteSpace: "nowrap",
-                      width: "100%",
-                      display: "block",
-                      textOverflow: "ellipsis",
-                      overflow: "hidden",
-                      height: "100%",
-                      borderBottom: "none",
-                    }}
+                    class="cell-note"
                   >
                     {row.notes.length > 0 ? row.notes : <AddNoteButton />}
                   </Cell>
                   <Cell
                     align="left"
-                    style={{ borderBottom: "none", width: "40%" }}
+                    class="cell-status"
                   >
                     <StatusButton status={row.status} />
                   </Cell>
-                  <Cell style={{ borderBottom: "none" }}>
+                  <Cell class="cell-options">
                     <OptionButton />
                   </Cell>
                 </Row>

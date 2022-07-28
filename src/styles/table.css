@@ -1,0 +1,58 @@
+.head-cell-body {
+    display: flex;
+    flex-direction: row;
+}
+.head-cell-text {
+    font-weight: bold;
+}
+.table-main {
+    table-layout: fixed;
+    margin-bottom: 2;
+    width: 90%;
+}
+.cell-date {
+    width: 70%;
+    border-bottom: none;
+    font-weight: normal;
+}
+.cell-name {
+    white-space: normal;
+    width: 80%;
+    border-bottom: none;
+    display: block;
+    font-weight: normal;
+}
+.cell-task {
+    width: 20%;
+    border-bottom: none;
+    font-weight: normal;
+}
+.cell-time {
+    width: 20%;
+    border-bottom: none;
+    font-weight: normal
+}
+.cell-contact {
+    white-space: nowrap;
+    width: 20%;
+    border-bottom: none;
+    font-weight: normal;
+}
+.cell-note {
+    white-space: nowrap;
+    width: 100%;
+    display: block;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    height: 100%;
+    border-bottom: none;
+    font-weight: normal;
+}
+.cell-status {
+    border-bottom: none;
+    width: 40%;
+    font-weight: normal;
+}
+.cell-options {
+    border-bottom: none;
+}
