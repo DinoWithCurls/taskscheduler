@@ -1,5 +1,5 @@
 import React from "react";
-import  {Open} from "../iconsComponent";
+import  {Open} from "../../utils/iconsComponent";
 import "../../styles/statusButton.css";
 const StatusButton = ({ status, onPressButton }) => {
   return (

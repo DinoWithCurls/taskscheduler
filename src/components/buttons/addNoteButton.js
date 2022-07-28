@@ -1,6 +1,6 @@
 import React from "react";
 import "../../styles/addNoteButton.css";
-import { Add } from "../iconsComponent";
+import { Add } from "../../utils/iconsComponent";
 const AddNoteButton = () => {
   return (
     <div class="button-container" onClick={() => console.log("ADD NOTE")}>

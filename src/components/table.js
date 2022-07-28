@@ -13,7 +13,7 @@ import {
 
 import AddNoteButton from "./buttons/addNoteButton";
 
-import { Filter } from "./iconsComponent";
+import { Filter } from "../utils/iconsComponent";
 
 import jsonFile from "../data/info.json";
 import headCells from "../data/headers.json";
