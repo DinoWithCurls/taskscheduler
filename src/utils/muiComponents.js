@@ -14,6 +14,8 @@ import {
   Modal
 } from "@mui/material";
 
+import SearchBar from "material-ui-search-bar";
+
 export {
   FormControl as MUIForm,
   MenuItem as MUIItem,
@@ -28,5 +30,6 @@ export {
   TableSortLabel as SortLabel,
   Paper,
   Box,
-  Modal as MUIModal
+  Modal as MUIModal,
+  SearchBar as Searchbar
 };

@@ -17,7 +17,6 @@ import StatusButton from "./buttons/statusButton";
 
 import { Filter, Phone, Location } from "../utils/iconsComponent";
 
-import jsonFile from "../data/info.json";
 import headCells from "../data/headers.json";
 
 import { getComparator, stableSort } from "../utils/tableSort";
@@ -60,7 +59,7 @@ const TableHeader = ({ order, orderBy, onRequestSort }) => {
   );
 };
 
-export const Table = () => {
+export const Table = ({data}) => {
   const [order, setOrder] = useState("asc");
   const [orderBy, setOrderBy] = useState("id");
   const handleRequestSort = (event, property) => {
@@ -77,7 +76,7 @@ export const Table = () => {
           onRequestSort={handleRequestSort}
         />
         <Body>
-          {stableSort(jsonFile, getComparator(order, orderBy)).map(
+          {stableSort(data, getComparator(order, orderBy)).map(
             (row, index) => {
               const labelID = index;
               return (
