@@ -15,14 +15,14 @@ import AddNoteButton from "./buttons/addNoteButton";
 import OptionButton from "./buttons/optionButton";
 import StatusButton from "./buttons/statusButton";
 
-import { Filter } from "../utils/iconsComponent";
+import { Filter, Phone, Location } from "../utils/iconsComponent";
 
 import jsonFile from "../data/info.json";
 import headCells from "../data/headers.json";
 
-import { getComparator, stableSort } from '../utils/tableSort'
+import { getComparator, stableSort } from "../utils/tableSort";
 
-import '../styles/table.css'
+import "../styles/table.css";
 
 const TableHeader = ({ order, orderBy, onRequestSort }) => {
   const createSortHandler = (property) => (event) => {
@@ -39,7 +39,7 @@ const TableHeader = ({ order, orderBy, onRequestSort }) => {
               padding={"normal"}
               size="medium"
               sortDirection={orderBy === headCell.id ? order : false}
-              style={{ border: "none", cursor:"pointer" }}
+              style={{ border: "none", cursor: "pointer" }}
               onClick={createSortHandler(headCell.id)}
             >
               <div class="head-cell-body">
@@ -70,10 +70,7 @@ export const Table = () => {
   };
   return (
     <Container component={Paper}>
-      <TableMain
-        class="table-main"
-        
-      >
+      <TableMain class="table-main">
         <TableHeader
           order={order}
           orderBy={orderBy}
@@ -102,34 +99,29 @@ export const Table = () => {
                   >
                     {row.entityName}
                   </Cell>
-                  <Cell
-                    align="left"
-                    class="cell-task"
-                  >
-                    {row.taskType}
+                  <Cell align="left" class="cell-task">
+                    <div>
+                      {row.taskType === "Call" ? (
+                        <div>
+                          <Phone style={{ fontSize: "small" }} /> Call
+                        </div>
+                      ) : (
+                        <div>
+                          <Location style={{ fontSize: "small" }} /> Meeting
+                        </div>
+                      )}
+                    </div>
                   </Cell>
-                  <Cell
-                    align="left"
-                    class="cell-time"
-                  >
+                  <Cell align="left" class="cell-time">
                     {row.time}
                   </Cell>
-                  <Cell
-                    align="left"
-                    class="cell-contact"
-                  >
+                  <Cell align="left" class="cell-contact">
                     {row.contactPerson}
                   </Cell>
-                  <Cell
-                    align="left"
-                    class="cell-note"
-                  >
+                  <Cell align="left" class="cell-note">
                     {row.notes.length > 0 ? row.notes : <AddNoteButton />}
                   </Cell>
-                  <Cell
-                    align="left"
-                    class="cell-status"
-                  >
+                  <Cell align="left" class="cell-status">
                     <StatusButton status={row.status} />
                   </Cell>
                   <Cell class="cell-options">

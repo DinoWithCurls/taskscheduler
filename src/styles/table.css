@@ -17,13 +17,14 @@
 }
 .cell-name {
     white-space: normal;
-    width: 80%;
+    width: 100%;
     border-bottom: none;
     display: block;
     font-weight: normal;
+    color: darkblue;
 }
 .cell-task {
-    width: 20%;
+    width: 30%;
     border-bottom: none;
     font-weight: normal;
 }

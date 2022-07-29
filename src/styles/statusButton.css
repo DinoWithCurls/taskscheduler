@@ -1,12 +1,12 @@
 .status-main {
     background-color: inherit;
-    border-bottom: 1px dotted black;
+    border-bottom: 2px dotted black;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    width: 30%;
-    margin-left: 40%
+    width: 35%;
+    margin-left: 10%
 }
 
 .open-style {
