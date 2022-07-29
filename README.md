@@ -9,12 +9,12 @@ This webapp will be created with ReactJS, and will have the following functional
 - Delete / archive tasks.
 
 Following components must be created:
-- [ ] New Task button, with icon and name
-- [ ] Options button with bottom arrow
-- [ ] Search bar
-- [ ] Button for task type
+- [x] New Task button, with icon and name
+- [x] Options button with bottom arrow
+- [x] Search bar
+- [x] Button for task type
 - [ ] Modal for more options, to be used with Options and task type buttons(will open w/o selector or w/ selector)
-- [ ] Open and closed, cancel and save button
+- [x] Open and closed, cancel and save button
 - [ ] Status modal
 - [ ] External block for "Create Next task for" view on the status modal
-- [ ] New Task modal, with name, date, time, task type, phone number, contact person, note inputs.
+- [x] New Task modal, with name, date, time, task type, phone number, contact person, note inputs.
