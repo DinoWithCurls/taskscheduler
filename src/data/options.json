@@ -1,0 +1,14 @@
+[
+    {
+        "id": 1,
+        "option": "Edit"
+    },
+    {
+        "id": 2,
+        "option": "Duplicate"
+    }, 
+    {
+        "id": 3,
+        "option": "Change status to Closed"
+    }
+]
