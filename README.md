@@ -18,3 +18,5 @@ Following components must be created:
 - [ ] Status modal
 - [ ] External block for "Create Next task for" view on the status modal
 - [x] New Task modal, with name, date, time, task type, phone number, contact person, note inputs.
+
+The Heroku link for this app: https://taskscheduler-react.herokuapp.com/
