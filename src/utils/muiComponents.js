@@ -10,7 +10,8 @@ import {
   TableRow,
   TableCell, Paper,
   TableSortLabel,
-  Box
+  Box,
+  Modal
 } from "@mui/material";
 
 export {
@@ -26,5 +27,6 @@ export {
   TableCell as Cell,
   TableSortLabel as SortLabel,
   Paper,
-  Box
+  Box,
+  Modal as MUIModal
 };
